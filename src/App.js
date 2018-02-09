@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 let pluralize = require('pluralize');
+let nouns = require('./Nouns');
+
+const randomNoun = (words) => {
+  return words[Math.floor(Math.random() * words.length)];
+}
 
 class App extends Component {
   render() {
@@ -15,7 +20,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <p>
-          {pluralize('index')}
+          {/* {pluralize('index')} */}
+          {pluralize(randomNoun(nouns))}
         </p>
       </div>
     );
