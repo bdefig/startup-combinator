@@ -1,8 +1,69 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
-.App-logo {
+.App-titleWrapper {
+  /* margin-top: 100px; */
+  width: fit-content;
+  height: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 5px solid;
+  border-image: linear-gradient(to left, #f7ff00, #db36a4) 10;
+}
+
+.App-title {
+  color: white;
+}
+
+.App-rateWrapper {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.App-rateThumb {
+  margin: 10px;
+  /* border: 3px solid white; */
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.App-another {
+  padding: 5px;
+  border-radius: 100px;
+  border: 3px solid #db36a4;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: bold;
+  transition: background-color 0.125s ease-in;
+}
+.App-another:hover {
+  background-color: #db36a4;
+  border: 3px solid #db36a4;
+  transition: background-color 0.125s ease-in;
+}
+
+/* .App-gradientText {
+  background: #db36a4;
+  background: -webkit-linear-gradient(to left, #f7ff00, #db36a4);
+  background: linear-gradient(to left, #f7ff00, #db36a4);
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
+/*.App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -14,10 +75,6 @@
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
 .App-intro {
   font-size: large;
 }
@@ -25,4 +82,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
