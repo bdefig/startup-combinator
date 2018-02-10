@@ -18,15 +18,15 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='App-titleWrapper'>
-          <h1 className='App-title'>Startup Combinator</h1>
+          <div className='App-title'>Startup Combinator</div>
         </div>
         <div className='App-theMagic'>
           {randomThing(businessModels) + ' for ' + pluralize(randomThing(nouns)) + ' 💸'}
         </div>
-        <div className='App-rateWrapper'>
+        {/* <div className='App-rateWrapper'>
           <div className='App-rateThumb'>👎</div>
           <div className='App-rateThumb'>👍</div>
-        </div>
+        </div> */}
         <div className='App-another' onClick={() => this.handleAnother()}>
           Another!
         </div>
@@ -37,16 +37,3 @@ class App extends Component {
 }
 
 export default App;
-
-{/* <div className="App">
-  <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <h1 className="App-title">Welcome to React</h1>
-  </header>
-  <p className="App-intro">
-    To get started, edit <code>src/App.js</code> and save to reload.
-  </p>
-  <p>
-    {pluralize(randomNoun(nouns))}
-  </p>
-</div> */}
