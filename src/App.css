@@ -21,7 +21,16 @@
 }
 
 .App-title {
+  text-align: center;
   color: white;
+}
+
+.App-theMagic {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .App-rateWrapper {
