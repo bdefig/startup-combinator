@@ -2,13 +2,17 @@
   "name": "startup-combinator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bdefig.github.io/startup-combinator",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "pluralize": "^7.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
