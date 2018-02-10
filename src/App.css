@@ -59,10 +59,13 @@
   font-weight: bold;
   transition: background-color 0.125s ease-in;
 }
-.App-another:hover {
-  background-color: #db36a4;
-  border: 3px solid #db36a4;
-  transition: background-color 0.125s ease-in;
+
+@media (hover:hover) {
+  .App-another:hover {
+    background-color: #db36a4;
+    border: 3px solid #db36a4;
+    transition: background-color 0.125s ease-in;
+  }
 }
 
 /* .App-gradientText {
