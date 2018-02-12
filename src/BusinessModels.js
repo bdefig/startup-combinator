@@ -1,5 +1,6 @@
 export const businessModels = [
     'Uber',
     'Airbnb',
-    'Tinder'
-]
+    'Tinder',
+    'Subscription box'
+];
