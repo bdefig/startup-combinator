@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-let pluralize = require('pluralize');
-let nouns = require('./Nouns');
-let businessModels = require('./BusinessModels');
+import { generateStartup } from './Generator';
 
 class App extends Component {
   handleAnother = () => {
@@ -11,9 +9,7 @@ class App extends Component {
   }
 
   render() {
-    const randomThing = (things) => {
-      return things[Math.floor(Math.random() * things.length)];
-    }
+    const randomStartup = generateStartup();
     
     return (
       <div className='App'>
@@ -21,7 +17,7 @@ class App extends Component {
           <div className='App-title'>Startup Combinator</div>
         </div>
         <div className='App-theMagic'>
-          {randomThing(businessModels) + ' for ' + pluralize(randomThing(nouns)) + ' 💸'}
+          {generateStartup()}
         </div>
         {/* <div className='App-rateWrapper'>
           <div className='App-rateThumb'>👎</div>

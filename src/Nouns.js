@@ -1,6 +1,6 @@
 // http://www.desiquintans.com/downloads/nounlist/nounlist.txt
 
-module.exports = [
+export const nouns = [
     'aardvark',
     'abacus',
     'abbey',
