@@ -6,8 +6,10 @@ import { generateStartup } from './Generator';
 class App extends Component {
   constructor(props) {
     super(props);
+    let initialStartupGenerated = generateStartup();
     this.state = {
-      startupText: generateStartup(),
+      startupText: initialStartupGenerated.startupText,
+      startupTextForComponent: initialStartupGenerated.startupTextForComponent,
       thumbsDownAnimate: false,
       thumbsUpAnimate: false
     };
@@ -16,7 +18,11 @@ class App extends Component {
   }
 
   handleAnother = () => {
-    this.setState({startupText: generateStartup()});
+    const startupGenerated = generateStartup();
+    this.setState({
+      startupText: startupGenerated.startupText,
+      startupTextForComponent: startupGenerated.startupTextForComponent
+    });
   }
 
   handleThumbsDownClick = () => {
@@ -30,7 +36,7 @@ class App extends Component {
   }
 
   render() {
-    let startupText = this.state.startupText;
+    let startupTextForComponent = this.state.startupTextForComponent;
     let thumbsDownClass = 'App-rateThumb ' + (this.state.thumbsDownAnimate ? 'App-animateThumb' : '');
     let thumbsUpClass = 'App-rateThumb ' + (this.state.thumbsUpAnimate ? 'App-animateThumb' : '');
     
@@ -40,7 +46,7 @@ class App extends Component {
           <div className='App-title'>Startup Combinator</div>
         </div>
         <div className='App-theMagic'>
-          {startupText}
+          {startupTextForComponent}
         </div>
         <div className='App-rateWrapper'>
           <div className='App-rateThumbWrapper'>

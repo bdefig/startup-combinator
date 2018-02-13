@@ -12,14 +12,23 @@ function randomThing(things) {
 export function generateStartup() {
     let type = randomThing([0, 1, 2, 3]);
     let startupText = '';
+    let startupTextForComponent = '';
     switch(type) {
         case 0:
-            startupText = randomThing(businessModels) + ' for ' + pluralize(randomThing(nouns)) + ' 💸';
-            return startupText;
+            startupText = randomThing(businessModels) + ' for ' + pluralize(randomThing(nouns));
+            startupTextForComponent = startupText + ' 💸';
+            return {
+                startupText: startupText,
+                startupTextForComponent: startupTextForComponent
+            };
         case 1:
-            startupText = randomThing(technologies) + ' for ' + pluralize(randomThing(nouns)) + ' 💸';
+            startupText = randomThing(technologies) + ' for ' + pluralize(randomThing(nouns));
             startupText = startupText.charAt(0).toUpperCase() + startupText.slice(1);
-            return startupText;
+            startupTextForComponent = startupText + ' 💸';
+            return {
+                startupText: startupText,
+                startupTextForComponent: startupTextForComponent
+            };
         case 2:
             let firstRandomTechnology = randomThing(technologies);
             let secondRandomTechnology = firstRandomTechnology;
@@ -28,7 +37,8 @@ export function generateStartup() {
             }
             firstRandomTechnology = firstRandomTechnology.charAt(0).toUpperCase() + firstRandomTechnology.slice(1);
             secondRandomTechnology = secondRandomTechnology.charAt(0).toUpperCase() + secondRandomTechnology.slice(1);
-            return (
+            startupText = firstRandomTechnology + ' + ' + secondRandomTechnology;
+            startupTextForComponent = (
                 <div>
                     <div>{firstRandomTechnology}</div>
                     <div>+</div>
@@ -36,18 +46,26 @@ export function generateStartup() {
                     <div>💸</div>
                 </div>
             );
+            return {
+                startupText: startupText,
+                startupTextForComponent: startupTextForComponent
+            };
         case 3:
             let randomNoun = randomThing(nouns);
             let randomNounLowercase = randomNoun;
             let randomNounCapitalized = randomNoun.charAt(0).toUpperCase() + randomNoun.slice(1);
-            // return randomNoun + 'Coin 💸';
-            return (
+            startupText = randomNounCapitalized + 'Coin: Blockchain for ' + pluralize(randomNounLowercase);
+            startupTextForComponent = (
                 <div>
                     <div>{randomNounCapitalized + 'Coin:'}</div>
                     <div>Blockchain for {pluralize(randomNounLowercase)}</div>
                     <div>💸</div>
                 </div>
-            )
+            );
+            return {
+                startupText: startupText,
+                startupTextForComponent: startupTextForComponent
+            };
         default:
             return 'Error 😕';
     }
