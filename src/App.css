@@ -7,7 +7,8 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.0, 1.0);
+  backface-visibility: hidden;
 }
 
 .App-titleWrapper {
@@ -41,9 +42,17 @@
 }
 
 .App-rateWrapper {
-  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
+}
+
+.App-rateThumbWrapper {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-rateThumb {
@@ -53,7 +62,23 @@
   cursor: pointer;
 }
 
+@keyframes bounceThumb {
+  from, 20%, 40%, 60%, 80%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% { transform: scale3d(1.0, 1.0, 1.0); }
+  20% { transform: scale3d(1.1, 1.1, 1.1); }
+  40% { transform: scale3d(0.9, 0.9, 0.9); }
+  60% { transform: scale3d(1.03, 1.03, 1.03); }
+  80% { transform: scale3d(0.97, 0.97, 0.97); }
+  to { transform: scale3d(1.0, 1.0, 1.0); }
+}
+
+.App-animateThumb {
+  animation-duration: 0.75s;
+  animation-name: bounceThumb;
+}
+
 .App-another {
+  margin: 10px;
   padding: 5px;
   border-radius: 100px;
   border: 3px solid #db36a4;

@@ -4,12 +4,35 @@ import './App.css';
 import { generateStartup } from './Generator';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startupText: generateStartup(),
+      thumbsDownAnimate: false,
+      thumbsUpAnimate: false
+    };
+    this.handleThumbsDownClick = this.handleThumbsDownClick.bind(this);
+    this.handleThumbsUpClick = this.handleThumbsUpClick.bind(this);
+  }
+
   handleAnother = () => {
-    this.forceUpdate();
+    this.setState({startupText: generateStartup()});
+  }
+
+  handleThumbsDownClick = () => {
+    this.setState({thumbsDownAnimate: true});
+    setTimeout(() => this.setState({thumbsDownAnimate: false}), 750);
+  }
+
+  handleThumbsUpClick = () => {
+    this.setState({thumbsUpAnimate: true});
+    setTimeout(() => this.setState({thumbsUpAnimate: false}), 750);
   }
 
   render() {
-    const randomStartup = generateStartup();
+    let startupText = this.state.startupText;
+    let thumbsDownClass = 'App-rateThumb ' + (this.state.thumbsDownAnimate ? 'App-animateThumb' : '');
+    let thumbsUpClass = 'App-rateThumb ' + (this.state.thumbsUpAnimate ? 'App-animateThumb' : '');
     
     return (
       <div className='App'>
@@ -17,12 +40,20 @@ class App extends Component {
           <div className='App-title'>Startup Combinator</div>
         </div>
         <div className='App-theMagic'>
-          {generateStartup()}
+          {startupText}
         </div>
-        {/* <div className='App-rateWrapper'>
-          <div className='App-rateThumb'>👎</div>
-          <div className='App-rateThumb'>👍</div>
-        </div> */}
+        <div className='App-rateWrapper'>
+          <div className='App-rateThumbWrapper'>
+            <div className={thumbsDownClass} onClick={() => this.handleThumbsDownClick()}>
+              👎
+            </div>
+          </div>
+          <div className='App-rateThumbWrapper'>
+            <div className={thumbsUpClass} onClick={() => this.handleThumbsUpClick()}>
+              👍
+            </div>
+          </div>
+        </div>
         <div className='App-another' onClick={() => this.handleAnother()}>
           Another!
         </div>
