@@ -57,7 +57,6 @@
 
 .App-rateThumb {
   margin: 10px;
-  /* border: 3px solid white; */
   font-size: 1.5em;
   cursor: pointer;
 }
@@ -105,25 +104,4 @@
   background-clip: content-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-} */
-
-/*.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 } */
