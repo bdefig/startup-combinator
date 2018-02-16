@@ -1,5 +1,6 @@
 # dependencies
 /app/node_modules
+/gcloud/node_modules
 
 # testing
 /app/coverage
