@@ -10,7 +10,7 @@ function randomThing(things) {
 }
 
 export function generateStartup() {
-    let type = randomThing([0, 1, 2, 3]);
+    let type = randomThing([0, 1, 2]);
     let startupText = '';
     let startupTextForComponent = '';
     switch(type) {
@@ -30,27 +30,6 @@ export function generateStartup() {
                 startupTextForComponent: startupTextForComponent
             };
         case 2:
-            let firstRandomTechnology = randomThing(technologies);
-            let secondRandomTechnology = firstRandomTechnology;
-            while (secondRandomTechnology === firstRandomTechnology) {
-                secondRandomTechnology = randomThing(technologies);
-            }
-            firstRandomTechnology = firstRandomTechnology.charAt(0).toUpperCase() + firstRandomTechnology.slice(1);
-            secondRandomTechnology = secondRandomTechnology.charAt(0).toUpperCase() + secondRandomTechnology.slice(1);
-            startupText = firstRandomTechnology + ' + ' + secondRandomTechnology;
-            startupTextForComponent = (
-                <div>
-                    <div>{firstRandomTechnology}</div>
-                    <div>+</div>
-                    <div>{secondRandomTechnology}</div>
-                    <div>💸</div>
-                </div>
-            );
-            return {
-                startupText: startupText,
-                startupTextForComponent: startupTextForComponent
-            };
-        case 3:
             let randomNoun = randomThing(nouns);
             let randomNounLowercase = randomNoun;
             let randomNounCapitalized = randomNoun.charAt(0).toUpperCase() + randomNoun.slice(1);
@@ -66,6 +45,27 @@ export function generateStartup() {
                 startupText: startupText,
                 startupTextForComponent: startupTextForComponent
             };
+        // case 3:
+        //     let firstRandomTechnology = randomThing(technologies);
+        //     let secondRandomTechnology = firstRandomTechnology;
+        //     while (secondRandomTechnology === firstRandomTechnology) {
+        //         secondRandomTechnology = randomThing(technologies);
+        //     }
+        //     firstRandomTechnology = firstRandomTechnology.charAt(0).toUpperCase() + firstRandomTechnology.slice(1);
+        //     secondRandomTechnology = secondRandomTechnology.charAt(0).toUpperCase() + secondRandomTechnology.slice(1);
+        //     startupText = firstRandomTechnology + ' + ' + secondRandomTechnology;
+        //     startupTextForComponent = (
+        //         <div>
+        //             <div>{firstRandomTechnology}</div>
+        //             <div>+</div>
+        //             <div>{secondRandomTechnology}</div>
+        //             <div>💸</div>
+        //         </div>
+        //     );
+        //     return {
+        //         startupText: startupText,
+        //         startupTextForComponent: startupTextForComponent
+        //     };
         default:
             return 'Error 😕';
     }
