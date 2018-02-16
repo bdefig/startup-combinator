@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { generateStartup } from './Generator';
+import { sendRating } from './Rater';
 
 class App extends Component {
   constructor(props) {
@@ -26,11 +27,13 @@ class App extends Component {
   }
 
   handleThumbsDownClick = () => {
+    sendRating(this.state.startupText, -1);
     this.setState({thumbsDownAnimate: true});
     setTimeout(() => this.setState({thumbsDownAnimate: false}), 750);
   }
 
   handleThumbsUpClick = () => {
+    sendRating(this.state.startupText, 1);
     this.setState({thumbsUpAnimate: true});
     setTimeout(() => this.setState({thumbsUpAnimate: false}), 750);
   }

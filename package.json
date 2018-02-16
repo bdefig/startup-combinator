@@ -9,7 +9,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-fittext": "^1.0.0",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "predeploy": "yarn run build",
