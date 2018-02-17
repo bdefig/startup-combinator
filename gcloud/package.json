@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "dependencies": {
     "@google-cloud/datastore": "^1.3.4"
+  },
+  "scripts": {
+    "deploy": "gcloud beta functions deploy thumb --trigger-http --stage-bucket startup-combinator"
   }
 }

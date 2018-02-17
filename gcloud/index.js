@@ -26,7 +26,10 @@ exports.thumb = (req, res) => {
       data: newData
     })
     .then(() => {
-      res.send({success: true});
+      res.send({
+        success: true,
+        message: 'Rating recorded'
+      });
     })
     .catch((err) => {
       res.status(500).send({
