@@ -11,7 +11,8 @@ class App extends Component {
       startupText: initialStartupGenerated.startupText,
       startupTextForComponent: initialStartupGenerated.startupTextForComponent,
       thumbsDownAnimate: false,
-      thumbsUpAnimate: false
+      thumbsUpAnimate: false,
+      sentThumb: false
     };
     this.handleThumbsDownClick = this.handleThumbsDownClick.bind(this);
     this.handleThumbsUpClick = this.handleThumbsUpClick.bind(this);
@@ -21,19 +22,30 @@ class App extends Component {
     const startupGenerated = generateStartup();
     this.setState({
       startupText: startupGenerated.startupText,
-      startupTextForComponent: startupGenerated.startupTextForComponent
+      startupTextForComponent: startupGenerated.startupTextForComponent,
+      sentThumb: false
     });
   }
 
   handleThumbsDownClick = () => {
-    sendRating(this.state.startupText, -1);
-    this.setState({thumbsDownAnimate: true});
+    if (this.state.sentThumb === false) {
+      sendRating(this.state.startupText, -1);
+    }
+    this.setState({
+      thumbsDownAnimate: true,
+      sentThumb: true
+    });
     setTimeout(() => this.setState({thumbsDownAnimate: false}), 750);
   }
 
   handleThumbsUpClick = () => {
-    sendRating(this.state.startupText, 1);
-    this.setState({thumbsUpAnimate: true});
+    if (this.state.sentThumb === false) {
+      sendRating(this.state.startupText, 1);
+    }
+    this.setState({
+      thumbsUpAnimate: true,
+      sentThumb: true
+    });
     setTimeout(() => this.setState({thumbsUpAnimate: false}), 750);
   }
 
