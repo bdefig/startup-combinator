@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { generateStartup } from './Generator';
 import { sendRating } from './Rater';
@@ -54,12 +53,12 @@ class App extends Component {
         <div className='App-rateWrapper'>
           <div className='App-rateThumbWrapper'>
             <div className={thumbsDownClass} onClick={() => this.handleThumbsDownClick()}>
-              👎
+              <span role='img' aria-label='Thumbs down'>👎</span>
             </div>
           </div>
           <div className='App-rateThumbWrapper'>
             <div className={thumbsUpClass} onClick={() => this.handleThumbsUpClick()}>
-              👍
+            <span role='img' aria-label='Thumbs up'>👍</span>
             </div>
           </div>
         </div>

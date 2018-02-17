@@ -3,7 +3,6 @@ import { businessModels } from './BusinessModels';
 import { nouns } from './Nouns';
 import { technologies } from './Technologies';
 const pluralize = require('pluralize');
-const ReactFitText = require('react-fittext');
 
 function randomThing(things) {
     return things[Math.floor(Math.random() * things.length)];
@@ -16,7 +15,11 @@ export function generateStartup() {
     switch(type) {
         case 0:
             startupText = randomThing(businessModels) + ' for ' + pluralize(randomThing(nouns));
-            startupTextForComponent = startupText + ' 💸';
+            startupTextForComponent = (
+                <div>
+                    {startupText + ' '}<span role='img' aria-label='Cash money'>💸</span>
+                </div>
+            );
             return {
                 startupText: startupText,
                 startupTextForComponent: startupTextForComponent
@@ -24,7 +27,11 @@ export function generateStartup() {
         case 1:
             startupText = randomThing(technologies) + ' for ' + pluralize(randomThing(nouns));
             startupText = startupText.charAt(0).toUpperCase() + startupText.slice(1);
-            startupTextForComponent = startupText + ' 💸';
+            startupTextForComponent = (
+                <div>
+                    {startupText + ' '}<span role='img' aria-label='Cash money'>💸</span>
+                </div>
+            );
             return {
                 startupText: startupText,
                 startupTextForComponent: startupTextForComponent
@@ -38,7 +45,7 @@ export function generateStartup() {
                 <div>
                     <div>{randomNounCapitalized + 'Coin:'}</div>
                     <div>Blockchain for {pluralize(randomNounLowercase)}</div>
-                    <div>💸</div>
+                    <div><span role='img' aria-label='Cash money'>💸</span></div>
                 </div>
             );
             return {
@@ -67,7 +74,15 @@ export function generateStartup() {
         //         startupTextForComponent: startupTextForComponent
         //     };
         default:
-            return 'Error 😕';
+            startupText = 'Loggly for errors';
+            startupTextForComponent = (
+                <div>
+                    <div>Loggly for errors <span role='img' aria-label='Sorry about that'>😕</span></div>
+                </div>
+            );
+            return {
+                startupText: startupText,
+                startupTextForComponent: startupTextForComponent
+            };
     }
-    
 }
